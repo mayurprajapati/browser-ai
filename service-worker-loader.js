@@ -1,3 +1,5 @@
+// Emulate chrome.tabGroups on Chromium forks that omit it (Vivaldi).
+import './tabgroups-shim.js';
 // Load shared provider registry first.
 import './provider-registry.js';
 // Load API adapter first to intercept fetch calls
