@@ -1,6 +1,6 @@
 {
    "action": {
-      "default_title": "Open BrowserKing"
+      "default_title": "Open Browser AI"
    },
    "background": {
       "service_worker": "service-worker-loader.js",
@@ -8,7 +8,7 @@
    },
    "commands": {
       "toggle-side-panel": {
-         "description": "Toggle BrowserKing side panel",
+         "description": "Toggle Browser AI side panel",
          "suggested_key": {
             "default": "Ctrl+E",
             "mac": "Command+E"
@@ -38,7 +38,7 @@
    "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://* wss://* http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
    },
-   "description": "BrowserKing browser agent with multi-provider LLM support",
+   "description": "AI browser agent with multi-provider LLM support",
    "externally_connectable": {
       "matches": [ "https://claude.ai/*", "https://*.claude.ai/*" ]
    },
@@ -48,7 +48,7 @@
    },
    "manifest_version": 3,
    "minimum_chrome_version": "116",
-   "name": "BrowserKing",
+   "name": "Browser AI",
    "options_page": "options.html",
    "permissions": [ "sidePanel", "storage", "activeTab", "scripting", "debugger", "tabGroups", "tabs", "alarms", "notifications", "system.display", "webNavigation", "declarativeNetRequestWithHostAccess", "offscreen", "nativeMessaging", "unlimitedStorage", "downloads" ],
    "storage": {

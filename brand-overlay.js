@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const registry = globalThis.BrowserKingRegistry;
+  const registry = globalThis.BrowserAIRegistry;
   if (!registry || !globalThis.chrome?.storage?.local) {
     return;
   }
@@ -16,10 +16,10 @@
   }
 
   function ensureOverlayStyle() {
-    let style = document.getElementById('browserking-overlay-style');
+    let style = document.getElementById('browserai-overlay-style');
     if (!style) {
       style = document.createElement('style');
-      style.id = 'browserking-overlay-style';
+      style.id = 'browserai-overlay-style';
       document.head.appendChild(style);
     }
     return style;
@@ -114,7 +114,7 @@
 
     const stopButton = document.getElementById('claude-agent-stop-button');
     if (stopButton && stopButton.innerHTML.includes('Stop Claude')) {
-      stopButton.innerHTML = stopButton.innerHTML.replace('Stop Claude', 'Stop BrowserKing');
+      stopButton.innerHTML = stopButton.innerHTML.replace('Stop Claude', 'Stop Browser AI');
     }
 
     const staticIndicator = document.getElementById('claude-static-indicator-container');
@@ -122,7 +122,7 @@
       const html = staticIndicator.innerHTML;
       if (html.includes('Claude is active') || html.includes('#D97757')) {
         staticIndicator.innerHTML = html
-          .replaceAll('Claude is active in this tab group', 'BrowserKing is active in this tab group')
+          .replaceAll('Claude is active in this tab group', 'Browser AI is active in this tab group')
           .replaceAll('#D97757', color);
       }
     }
@@ -144,7 +144,7 @@
   const observer = new MutationObserver(debouncedApply);
   observer.observe(document.documentElement, { childList: true, subtree: true });
   chrome.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName === 'local' && changes.browserKingProviderState) {
+    if (areaName === 'local' && changes.browserAIProviderState) {
       applyOverlay();
     }
   });

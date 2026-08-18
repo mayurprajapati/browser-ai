@@ -1,7 +1,7 @@
 /**
  * Voice Input
  *
- * Injects a microphone button into the BrowserKing sidepanel chat input area.
+ * Injects a microphone button into the Browser AI sidepanel chat input area.
  * Uses the Web Speech API (SpeechRecognition) to transcribe speech to text
  * and populate the textarea for hands-free interaction.
  */
@@ -10,7 +10,7 @@
   'use strict';
 
   if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-    console.warn('[BrowserKing Voice] Web Speech API not supported in this browser.');
+    console.warn('[Browser AI Voice] Web Speech API not supported in this browser.');
     return;
   }
 
@@ -33,7 +33,7 @@
 
   function getProviderColor() {
     try {
-      const registry = globalThis.BrowserKingRegistry;
+      const registry = globalThis.BrowserAIRegistry;
       if (registry) {
         registry.loadState().then((state) => {
           const def = registry.getActiveProviderDefinition(state);
@@ -48,7 +48,7 @@
 
   function createMicButton() {
     const btn = document.createElement('button');
-    btn.id = 'browserking-mic-btn';
+    btn.id = 'browserai-mic-btn';
     btn.type = 'button';
     btn.title = 'Voice input (click to speak)';
     btn.innerHTML = MIC_ICON;
@@ -116,7 +116,7 @@
 
     recognition.onerror = (event) => {
       if (event.error !== 'aborted') {
-        console.warn('[BrowserKing Voice] Recognition error:', event.error);
+        console.warn('[Browser AI Voice] Recognition error:', event.error);
       }
       stopListening();
     };
@@ -164,7 +164,7 @@
   }
 
   function injectMicButton() {
-    if (document.getElementById('browserking-mic-btn')) return;
+    if (document.getElementById('browserai-mic-btn')) return;
 
     // Look for the toolbar area near the send button
     const sendButton = document.querySelector('[data-test-id="send-button"], button[aria-label*="Send"], button[type="submit"]');
@@ -185,14 +185,14 @@
   const interval = setInterval(() => {
     injectMicButton();
     attempts++;
-    if (document.getElementById('browserking-mic-btn') || attempts > 60) {
+    if (document.getElementById('browserai-mic-btn') || attempts > 60) {
       clearInterval(interval);
     }
   }, 500);
 
   // Re-inject if UI re-renders
   const observer = new MutationObserver(() => {
-    if (!document.getElementById('browserking-mic-btn')) {
+    if (!document.getElementById('browserai-mic-btn')) {
       injectMicButton();
     }
   });

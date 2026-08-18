@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="icon-128.png" alt="BrowserKing" width="96" />
+  <img src="icon-128.png" alt="Browser AI" width="96" />
 </p>
 
-<h1 align="center">BrowserKing</h1>
+<h1 align="center">Browser AI</h1>
 
 <p align="center">
   <strong>Open-source browser agent Chrome extension powered by any LLM provider</strong>
@@ -14,9 +14,9 @@
 
 ---
 
-## What is BrowserKing?
+## What is Browser AI?
 
-BrowserKing is a Chrome extension that gives any LLM the ability to see and control your browser. It works like a human assistant that can:
+Browser AI is a Chrome extension that gives any LLM the ability to see and control your browser. It works like a human assistant that can:
 
 - **Take screenshots** and understand what's on screen
 - **Click, type, scroll** and navigate web pages
@@ -24,7 +24,7 @@ BrowserKing is a Chrome extension that gives any LLM the ability to see and cont
 - **Open tabs** and work across multiple pages
 - **Record and replay workflows** for repetitive tasks
 
-Unlike other browser agents locked to a single provider, BrowserKing lets you **bring your own API key** from any OpenAI-compatible provider — or use the Anthropic API directly.
+Unlike other browser agents locked to a single provider, Browser AI lets you **bring your own API key** from any OpenAI-compatible provider — or use the Anthropic API directly.
 
 ## Supported Providers
 
@@ -46,11 +46,11 @@ Each provider gets its own **theme color** throughout the UI — the sidebar, se
 
 ## Run Local Models
 
-BrowserKing works with **any OpenAI-compatible API**, which means you can run it with local models too. Point it at [Ollama](https://ollama.com), [LM Studio](https://lmstudio.ai), [LocalAI](https://localai.io), or any other local inference server that exposes an OpenAI-compatible endpoint.
+Browser AI works with **any OpenAI-compatible API**, which means you can run it with local models too. Point it at [Ollama](https://ollama.com), [LM Studio](https://lmstudio.ai), [LocalAI](https://localai.io), or any other local inference server that exposes an OpenAI-compatible endpoint.
 
 **Setup:**
 1. Start your local server (e.g., `ollama serve` or launch LM Studio)
-2. In BrowserKing settings, select the **Custom** provider
+2. In Browser AI settings, select the **Custom** provider
 3. Set the base URL to your local endpoint (e.g., `http://localhost:11434/v1` for Ollama)
 4. Enter any string as the API key (local servers usually don't require one, but the field can't be empty)
 5. Select or type your model name
@@ -60,7 +60,7 @@ BrowserKing works with **any OpenAI-compatible API**, which means you can run it
 - `qwen2.5-vl` (strong vision)
 - Any model with vision and function calling support
 
-> **Note:** Local model support is experimental. Performance depends heavily on your hardware and the model's ability to handle tool calls and vision inputs. Cloud providers with dedicated function calling support will generally give the most reliable results. If you run into issues, please [open an issue](https://github.com/Mushisushi28/BrowserKing/issues) — we'd love to hear what works and what doesn't.
+> **Note:** Local model support is experimental. Performance depends heavily on your hardware and the model's ability to handle tool calls and vision inputs. Cloud providers with dedicated function calling support will generally give the most reliable results. If you run into issues, please [open an issue](https://github.com/Mushisushi28/BrowserAI/issues) — we'd love to hear what works and what doesn't.
 
 ## Features
 
@@ -79,13 +79,13 @@ BrowserKing works with **any OpenAI-compatible API**, which means you can run it
 2. Open `chrome://extensions` in Chrome
 3. Enable **Developer mode** (toggle in the top right)
 4. Click **Load unpacked** and select this folder
-5. Click the BrowserKing icon in your toolbar to open the side panel
+5. Click the Browser AI icon in your toolbar to open the side panel
 6. Go to **Settings** and add your API key for at least one provider
 
 ## Quick Start
 
 1. Open any web page
-2. Open BrowserKing from the side panel
+2. Open Browser AI from the side panel
 3. Select your provider and model from the dropdown at the top
 4. Type a task like _"Find the cheapest flight from Calgary to Tokyo next month"_
 5. Watch the agent work — it takes screenshots, clicks, scrolls, and reports back
@@ -102,7 +102,7 @@ Open the **Provider Settings** page from the extension options to:
 
 ## Architecture
 
-BrowserKing works by intercepting the stock extension's Anthropic API calls and translating them to OpenAI-compatible `chat/completions` requests. This means:
+Browser AI works by intercepting the stock extension's Anthropic API calls and translating them to OpenAI-compatible `chat/completions` requests. This means:
 
 - The full browser automation toolkit (screenshots, clicks, navigation) works with any provider
 - Tool calls are translated between Anthropic and OpenAI formats in real-time
@@ -132,11 +132,11 @@ Key files:
 - [ ] **Firefox & Edge support** — Port the extension to other Chromium and non-Chromium browsers
 - [ ] **Mobile support** — Bring browser agent capabilities to mobile browsers via Kiwi Browser or Firefox Android extensions
 
-Have a feature idea? [Open an issue](https://github.com/Mushisushi28/BrowserKing/issues) or submit a PR.
+Have a feature idea? [Open an issue](https://github.com/Mushisushi28/BrowserAI/issues) or submit a PR.
 
 ## Acknowledgments
 
-BrowserKing is built on top of Anthropic's [Claude for Chrome](https://chrome.google.com/webstore/detail/claude/danfohhfmbeahkgpceibgibfpkhokbfp) extension. We extended it with multi-provider support, local model compatibility, and a provider-themed UI.
+Browser AI is built on top of Anthropic's [Claude for Chrome](https://chrome.google.com/webstore/detail/claude/danfohhfmbeahkgpceibgibfpkhokbfp) extension. We extended it with multi-provider support, local model compatibility, and a provider-themed UI.
 
 ## License
 

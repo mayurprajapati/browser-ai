@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const registry = globalThis.BrowserKingRegistry;
+  const registry = globalThis.BrowserAIRegistry;
 
   if (!registry) {
     return;

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  const registry = globalThis.BrowserKingRegistry;
+  const registry = globalThis.BrowserAIRegistry;
   if (!registry) {
     return;
   }
@@ -177,7 +177,7 @@
     }
 
     chrome.storage.onChanged.addListener((changes, areaName) => {
-      if (areaName === 'local' && changes.browserKingProviderState) {
+      if (areaName === 'local' && changes.browserAIProviderState) {
         render();
       }
     });

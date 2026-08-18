@@ -1,28 +1,28 @@
 (function() {
   'use strict';
 
-  const registry = globalThis.BrowserKingRegistry;
+  const registry = globalThis.BrowserAIRegistry;
   if (!registry) {
     return;
   }
 
   const replacements = [
-    ['Claude in Chrome settings', 'BrowserKing settings'],
-    ['Claude for Chrome', 'BrowserKing'],
-    ['Claude Options', 'BrowserKing Settings'],
-    ['Open Claude', 'Open BrowserKing'],
-    ['Toggle Claude side panel', 'Toggle BrowserKing side panel'],
-    ['Teach Claude your workflow', 'Teach BrowserKing your workflow'],
-    ['Claude is active in this tab group', 'BrowserKing is active in this tab group'],
-    ['Stop Claude', 'Stop BrowserKing'],
-    ['Claude content', 'BrowserKing content'],
-    ['HIGH RISK: Claude can take most actions on the internet now.', 'HIGH RISK: BrowserKing can take most actions on the internet now.'],
-    ['Claude can take screenshots when responding.', 'BrowserKing can take screenshots when responding.'],
-    ['Claude is AI and can make mistakes.', 'BrowserKing is AI and can make mistakes.'],
-    ['Message Claude...', 'Message BrowserKing...'],
-    ['Reply to Claude', 'Reply to BrowserKing'],
-    ['Teach Claude', 'Teach BrowserKing'],
-    ['Pin Claude for quick access', 'Pin BrowserKing for quick access']
+    ['Claude in Chrome settings', 'Browser AI settings'],
+    ['Claude for Chrome', 'Browser AI'],
+    ['Claude Options', 'Browser AI Settings'],
+    ['Open Claude', 'Open Browser AI'],
+    ['Toggle Claude side panel', 'Toggle Browser AI side panel'],
+    ['Teach Claude your workflow', 'Teach Browser AI your workflow'],
+    ['Claude is active in this tab group', 'Browser AI is active in this tab group'],
+    ['Stop Claude', 'Stop Browser AI'],
+    ['Claude content', 'Browser AI content'],
+    ['HIGH RISK: Claude can take most actions on the internet now.', 'HIGH RISK: Browser AI can take most actions on the internet now.'],
+    ['Claude can take screenshots when responding.', 'Browser AI can take screenshots when responding.'],
+    ['Claude is AI and can make mistakes.', 'Browser AI is AI and can make mistakes.'],
+    ['Message Claude...', 'Message Browser AI...'],
+    ['Reply to Claude', 'Reply to Browser AI'],
+    ['Teach Claude', 'Teach Browser AI'],
+    ['Pin Claude for quick access', 'Pin Browser AI for quick access']
   ];
 
   function replaceText(root) {
@@ -100,10 +100,10 @@
   }
 
   function ensureThemeStyle() {
-    let style = document.getElementById('browserking-provider-theme-style');
+    let style = document.getElementById('browserai-provider-theme-style');
     if (!style) {
       style = document.createElement('style');
-      style.id = 'browserking-provider-theme-style';
+      style.id = 'browserai-provider-theme-style';
       document.head.appendChild(style);
     }
     return style;
@@ -332,7 +332,7 @@
   observer.observe(document.documentElement, { childList: true, subtree: true });
 
   chrome.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName === 'local' && changes.browserKingProviderState) {
+    if (areaName === 'local' && changes.browserAIProviderState) {
       applyTheme();
     }
   });

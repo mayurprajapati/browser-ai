@@ -2,12 +2,12 @@
   'use strict';
 
   const BRAND = {
-    name: 'BrowserKing',
-    shortName: 'BrowserKing',
+    name: 'Browser AI',
+    shortName: 'Browser AI',
     description: 'Open browser agent for your own LLM providers'
   };
 
-  const STORAGE_KEY = 'browserKingProviderState';
+  const STORAGE_KEY = 'browserAIProviderState';
   const LEGACY_PROVIDER_KEY = 'providerConfig';
 
   function createModel(id, name, options) {
@@ -778,7 +778,7 @@
     });
 
     const currentModel = getCurrentModel(state);
-    const brandSystemPrompt = `You are BrowserKing, an AI browser agent inside a Chrome extension. You can browse, inspect pages, use screenshots, and operate browser tools on the user's behalf.\n\nCapabilities:\n- Take screenshots of the current page\n- Click, type, scroll, and navigate web pages\n- Read page content and extract information\n- Execute JavaScript on pages\n- Open new tabs and switch between them\n- Help users complete browser tasks efficiently and safely\n\nGuidelines:\n- Be helpful, honest, and careful\n- Take a screenshot before acting on unfamiliar pages when visual context matters\n- Explain your intended next step before taking actions\n- Protect sensitive information and do not submit private data unless the user explicitly instructs you\n- Use {{currentDateTime}} as the current date/time reference\n- The current model is {{modelName}}`;
+    const brandSystemPrompt = `You are Browser AI, an AI browser agent inside a Chrome extension. You can browse, inspect pages, use screenshots, and operate browser tools on the user's behalf.\n\nCapabilities:\n- Take screenshots of the current page\n- Click, type, scroll, and navigate web pages\n- Read page content and extract information\n- Execute JavaScript on pages\n- Open new tabs and switch between them\n- Help users complete browser tasks efficiently and safely\n\nGuidelines:\n- Be helpful, honest, and careful\n- Take a screenshot before acting on unfamiliar pages when visual context matters\n- Explain your intended next step before taking actions\n- Protect sensitive information and do not submit private data unless the user explicitly instructs you\n- Use {{currentDateTime}} as the current date/time reference\n- The current model is {{modelName}}`;
 
     return {
       payload: {
@@ -841,19 +841,19 @@
     await chrome.storage.local.set({
       [STORAGE_KEY]: state,
       [LEGACY_PROVIDER_KEY]: getLegacyProviderConfig(state),
-      browserKingBrand: BRAND,
-      browserKingActiveProvider: {
+      browserAIBrand: BRAND,
+      browserAIActiveProvider: {
         id: activeDefinition.id,
         label: activeDefinition.label,
         color: activeDefinition.color,
         colorDark: activeDefinition.colorDark,
         transport: activeDefinition.transport
       },
-      anthropicApiKey: activeState.apiKey || 'browserking-key',
+      anthropicApiKey: activeState.apiKey || 'browserai-key',
       selectedModel: currentModel.id,
       selectedModelQuickMode: currentModel.id,
-      accessToken: 'browserking-access-token',
-      refreshToken: 'browserking-refresh-token',
+      accessToken: 'browserai-access-token',
+      refreshToken: 'browserai-refresh-token',
       tokenExpiry: Date.now() + 365 * 24 * 60 * 60 * 1000,
       lastAuthFailureReason: undefined,
       browserControlPermissionAccepted: true,
@@ -885,7 +885,7 @@
     };
   }
 
-  globalThis.BrowserKingRegistry = {
+  globalThis.BrowserAIRegistry = {
     BRAND,
     PROVIDERS,
     STORAGE_KEY,
